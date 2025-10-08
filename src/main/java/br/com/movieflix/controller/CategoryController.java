@@ -33,4 +33,9 @@ public class CategoryController {
         return optCategory.orElse(null);
     }
 
+    @DeleteMapping({"/{id}"})
+    public void deleteCategoryById(@PathVariable Long id){
+        categoryService.deleteById(id);
+    }
+
 }
