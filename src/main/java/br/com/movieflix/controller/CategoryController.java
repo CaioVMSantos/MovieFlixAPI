@@ -23,7 +23,7 @@ public class CategoryController {
 
     @GetMapping()
     public ResponseEntity<List<CategoryResponse>> getAllCategories() {
-        List<CategoryResponse> categories = categoryService.findAllCategories()
+        List<CategoryResponse> categories = categoryService.findAll()
                 .stream()
                 .map(CategoryMapper::toCategoryResponse)
                 .toList();
@@ -32,7 +32,7 @@ public class CategoryController {
 
     @PostMapping()
     public ResponseEntity<CategoryResponse> createCategory(@RequestBody CategoryRequest request) {
-        Category category = categoryService.createCategory(CategoryMapper.toCategory(request));
+        Category category = categoryService.create(CategoryMapper.toCategory(request));
         return ResponseEntity.status(HttpStatus.CREATED).body(CategoryMapper.toCategoryResponse(category));
     }
 

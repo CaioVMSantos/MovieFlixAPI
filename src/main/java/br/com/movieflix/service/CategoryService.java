@@ -14,11 +14,11 @@ public class CategoryService {
 
     private final CategoryRepository repository;
 
-    public List<Category> findAllCategories(){
+    public List<Category> findAll(){
         return repository.findAll();
     }
 
-    public Category createCategory(Category category){
+    public Category create(Category category){
         return repository.save(category);
     }
 
