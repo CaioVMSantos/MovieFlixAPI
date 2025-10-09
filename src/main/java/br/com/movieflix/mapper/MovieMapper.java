@@ -14,7 +14,7 @@ import java.util.List;
 @UtilityClass
 public class MovieMapper {
 
-    public static Movie toMovie(MovieRequest request){
+    public static Movie toMovie(MovieRequest request) {
         List<Category> categories = request.categories().stream()
                 .map(categoryId -> Category.builder().id(categoryId).build())
                 .toList();
@@ -33,7 +33,7 @@ public class MovieMapper {
                 .build();
     }
 
-    public static MovieResponse  toMovieResponse(Movie movie){
+    public static MovieResponse toMovieResponse(Movie movie) {
 
         List<CategoryResponse> categories = movie.getCategories()
                 .stream()
@@ -45,15 +45,15 @@ public class MovieMapper {
                 .map(streaming -> StreamingMapper.toStreamingResponse(streaming))
                 .toList();
 
-         return MovieResponse.builder()
-                 .id(movie.getId())
-                 .title(movie.getTitle())
-                 .description(movie.getDescription())
-                 .releaseDate(movie.getReleaseDate())
-                 .rating(movie.getRating())
-                 .categories(categories)
-                 .streamings(streamings)
-                 .build();
+        return MovieResponse.builder()
+                .id(movie.getId())
+                .title(movie.getTitle())
+                .description(movie.getDescription())
+                .releaseDate(movie.getReleaseDate())
+                .rating(movie.getRating())
+                .categories(categories)
+                .streamings(streamings)
+                .build();
     }
 
 }
