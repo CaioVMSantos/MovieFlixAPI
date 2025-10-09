@@ -14,19 +14,19 @@ public class CategoryService {
 
     private final CategoryRepository repository;
 
-    public List<Category> findAll(){
+    public List<Category> findAll() {
         return repository.findAll();
     }
 
-    public Category create(Category category){
+    public Category create(Category category) {
         return repository.save(category);
     }
 
-    public Optional<Category> findById(Long id){
+    public Optional<Category> findById(Long id) {
         return repository.findById(id);
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         repository.deleteById(id);
     }
 }

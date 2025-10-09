@@ -20,15 +20,15 @@ public class StreamingService {
         return streamingRepository.findAll();
     }
 
-    public Streaming create(Streaming streaming){
+    public Streaming create(Streaming streaming) {
         return streamingRepository.save(streaming);
     }
 
-    public Optional<Streaming> findById(Long id){
+    public Optional<Streaming> findById(Long id) {
         return streamingRepository.findById(id);
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         streamingRepository.deleteById(id);
     }
 
