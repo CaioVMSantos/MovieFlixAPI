@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,10 +23,18 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
+    public Optional<Movie> findById(Long id) {
+        return movieRepository.findById(id);
+    }
+
     public Movie create(Movie movie) {
         movie.setCategories(this.findCategories(movie.getCategories()));
         movie.setStreamings(this.findStreamings(movie.getStreamings()));
         return movieRepository.save(movie);
+    }
+
+    public void delete(Long id) {
+        movieRepository.deleteById(id);
     }
 
     //Method to find Categories
