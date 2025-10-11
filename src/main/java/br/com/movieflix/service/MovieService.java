@@ -27,6 +27,10 @@ public class MovieService {
         return movieRepository.findById(id);
     }
 
+    public List<Movie> findByCategory(Long categoryId) {
+        return movieRepository.findMovieByCategories(List.of(Category.builder().id(categoryId).build()));
+    }
+
     public Movie create(Movie movie) {
         movie.setCategories(this.findCategories(movie.getCategories()));
         movie.setStreamings(this.findStreamings(movie.getStreamings()));
