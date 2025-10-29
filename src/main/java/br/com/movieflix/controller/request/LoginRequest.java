@@ -1,4 +1,4 @@
-package br.com.movieflix.request;
+package br.com.movieflix.controller.request;
 
 
 public record LoginRequest(String email, String password){

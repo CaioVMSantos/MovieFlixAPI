@@ -1,4 +1,4 @@
-package br.com.movieflix.response;
+package br.com.movieflix.controller.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;

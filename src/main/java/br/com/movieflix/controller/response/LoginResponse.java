@@ -1,4 +1,4 @@
-package br.com.movieflix.response;
+package br.com.movieflix.controller.response;
 
 
 public record LoginResponse(String token) {
