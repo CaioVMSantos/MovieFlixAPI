@@ -3,9 +3,9 @@ spring:
     name: movieflix
 
   datasource:
-    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: flixmovie
+    password: flixmovie0908
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -17,8 +17,14 @@ spring:
 
 movieflix:
   security:
-    secret: ${SECRET_HASHCODE}
+    secret: dd0f0f79aefb4c129f13c2c40fa56fd232c73d9d6f5bbda3cc64a9607df6cbe4
 
 logging:
   level:
     org.springframework.security: DEBUG
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
