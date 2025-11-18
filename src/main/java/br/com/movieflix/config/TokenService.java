@@ -39,7 +39,8 @@ public class TokenService {
                     .build()
                     .verify(token);
 
-            return Optional.of(JWTUserData.builder()
+            return Optional.of(JWTUserData
+                    .builder()
                     .email(decode.getSubject())
                     .userId(decode.getClaim("userId").asLong())
                     .build());
