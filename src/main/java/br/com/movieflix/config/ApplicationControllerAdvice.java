@@ -1,6 +1,7 @@
 package br.com.movieflix.config;
 
 import br.com.movieflix.exception.UsernameOrPasswordInvalidException;
+import br.com.movieflix.exception.ValidationErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -22,11 +23,14 @@ public class ApplicationControllerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Map<String, String> handleArgumentNotValidException(MethodArgumentNotValidException ex){
-        Map<String, String> errors = new HashMap<>();
-        ex.getBindingResult().getAllErrors().forEach((error) ->
-                errors.put(((FieldError) error). getField(), error.getDefaultMessage()));
+    public ValidationErrorResponse handleArgumentNotValidException(MethodArgumentNotValidException ex){
 
-        return errors;
+        Map<String, String> errors = new HashMap<>();
+
+        ex.getBindingResult().getAllErrors().forEach(error ->
+                errors.put(((FieldError) error).getField(), error.getDefaultMessage())
+        );
+
+        return new ValidationErrorResponse(errors);
     }
 }
